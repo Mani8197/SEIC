@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-media slds-media_large slds-p-top_large">
+        <div class="slds-media__figure">
+            <div class="medium-container">
+                <img class="rounded-image" alt="Person name" src={communityGroupBanner.FullPhotoUrl} title="User avatar" />
+            </div>
+        </div>
+        <div class="slds-media__body">
+            <div class="slds-text-heading_medium">
+                {communityGroupBanner.Name}&nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="slds-p-top_xxx-small slds-text-body_small">{communityGroupBanner.MemberCountText}</div>
+            <p class="slds-p-top_large">
+                <lightning-formatted-rich-text value={communityGroupBanner.InformationBody}></lightning-formatted-rich-text>
+            </p>
+            <div class="slds-text-heading_small slds-p-top_large">
+                Meet your moderator:&nbsp;&nbsp;&nbsp;
+                <a href={communityGroupBanner.OwnerUrl}>{communityGroupBanner.OwnerName}&nbsp;&nbsp;&nbsp;
+                    <img class="rounded-image smaller-container" alt="Person name" src={communityGroupBanner.OwnerPhotoUrl} title="User avatar" />
+                </a>
+            </div>
+        </div>
+    </div>
+</template>

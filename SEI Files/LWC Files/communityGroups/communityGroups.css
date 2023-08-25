@@ -1,0 +1,8 @@
+.rounded-image {
+    border-radius: 50%;
+}
+
+.small-container {
+    height: 100px;
+    width: 100px;
+}

@@ -1,0 +1,26 @@
+<template>
+    <lightning-card>
+        <div>
+            <p class="slds-align_absolute-center inside-text" if:false={profileComplete}>Your profile is the first step in making meaningful connections</p>
+            <p class="slds-align_absolute-center inside-text" if:true={profileComplete}> Congratulations! Your profile is complete. You&apos;re well on your way to making meaningful connections with your peers.</p>
+        </div>
+        <!-- <template if:true={profilepercentVal}>
+            <div class="progress-container">
+                <lightning-progress-ring value={profilepercentValui} size="large" class="slds-align_absolute-center very-large" variant="circular">
+                </lightning-progress-ring>
+                <div class="percentval">{profilepercentValui}%</div>
+                <div>
+                </div>
+            </div>
+        </template> -->
+        <template if:true={profileAttribute}>
+            <div class="progress-container">
+                <lightning-progress-ring value={profileAttribute.Profile_Completion_Percentage__c} size="large" class="slds-align_absolute-center very-large" variant="circular">
+                </lightning-progress-ring>
+                <div class="percentval">{profileAttribute.Profile_Completion_Percentage__c}%</div>
+            </div>
+        </template>
+         <button if:false={profileComplete}  title="Brand action" class="slds-align_absolute-center button-format" onclick={navigateToEditUserPage}>Update Profile</button>
+    </lightning-card>
+
+</template>

@@ -1,0 +1,36 @@
+.very-large {
+    zoom: 300%;
+}
+.percentval{
+   position: absolute;
+   top: 35%;
+   left: 43%;
+   font-size: 1.5rem;
+}
+.progress-container {
+   position: relative;
+   padding-top: 10px;
+}
+.button-format{
+
+   margin-top: 12px;
+   background-color:#254A5D;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   padding: 5px 15px;
+   font-size: 12px;
+   height: 35px; 
+   
+}
+.paragraph-text{
+   
+   text-align: right;
+   font-size: medium;
+  
+}
+.inside-text{
+   padding: 20px;
+   padding-top: 0.25px;
+}

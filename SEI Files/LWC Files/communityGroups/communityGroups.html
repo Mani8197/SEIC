@@ -1,0 +1,57 @@
+<template>
+    {error}
+    <div class="slds-text-heading_large">{title}</div>
+    <!-- <div class="slds-m-around_large">
+        <p if:true={isLoaded}></p>
+         <div if:false={isLoaded} class="slds-is-relative">
+            <lightning-spinner
+                alternative-text="Loading..." variant="brand">
+            </lightning-spinner>
+        </div>
+    </div> -->
+
+    <ul class="slds-has-dividers_bottom-space slds-p-top_large">
+        <template for:each={userCommunities} for:item="communityGroup">
+            <li key={communityGroup.Id} class="slds-item">
+                <div class="slds-media slds-media_large">
+                    <div class="slds-media__figure">
+                        <div class="small-container">
+                            <img class="rounded-image" alt="Person name" src={communityGroup.FullPhotoUrl} title="User avatar" />
+                        </div>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-text-heading_small"><a href={communityGroup.GroupPageUrl}>{communityGroup.Name}</a>&nbsp;&nbsp;&nbsp;
+                            <lightning-button-stateful
+                                label-when-off="Join"
+                                label-when-on="Member"
+                                label-when-hover="Leave"
+                                icon-name-when-off="utility:add"
+                                icon-name-when-on="utility:check"
+                                icon-name-when-hover="utility:leave_conference"
+                                selected={communityGroup.IsMember}
+                                onclick={handleClick}
+                                data-group-id={communityGroup.Id}
+                                data-is-member={communityGroup.IsMember}
+                                data-group-membership-id={communityGroup.CollaborationGroupMemberId}>
+                            </lightning-button-stateful>
+                            <template if:true={communityGroup.IsMember}>
+                                <div class="slds-text-body_small">
+                                    <lightning-radio-group name={communityGroup.Id}
+                                        label="Notification"
+                                        options={options}
+                                        value={communityGroup.NotificationFrequency}
+                                        type="button"
+                                        onchange={handleOnChange}
+                                        data-group-id={communityGroup.CollaborationGroupMemberId}>
+                                    </lightning-radio-group>
+                                </div>
+                            </template>
+                        </div>
+                        <div class="slds-p-top_xxx-small slds-text-body_small">{communityGroup.MemberCountText}</div>
+                        <p class="slds-p-top_large"><lightning-formatted-rich-text value={communityGroup.InformationBody}></lightning-formatted-rich-text></p>
+                    </div>
+                </div>
+            </li>
+        </template>
+    </ul>
+</template>
